@@ -1,52 +1,49 @@
 'use client';
-
-import { useState } from "react";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "@/lib/firebase";
-import { useRouter } from "next/navigation";
+export const dynamic = 'force-dynamic';
+import { useState } from 'react';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '@/lib/firebase';
+import { useRouter } from 'next/navigation';
+import Input from '@/components/Input';
+import Button from '@/components/Button';
+import Layout from '@/components/Layout';
 
 export default function Login() {
-  const [email, setEmail] = useState("");
-  const [senha, setSenha] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const router = useRouter();
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     try {
-      await signInWithEmailAndPassword(auth, email, senha);
-      router.push("/");           // redireciona pós-login
+      await signInWithEmailAndPassword(auth, email, password);
+      router.push('/portal');
     } catch (err) {
-      alert("Erro: " + (err as Error).message);
+      alert('Erro: ' + (err as Error).message);
     }
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center">
-      <form
-        onSubmit={handleSubmit}
-        className="bg-white p-6 rounded-xl shadow w-80 space-y-4"
-      >
-        <h1 className="text-2xl font-bold text-center">Entrar</h1>
-        <input
-          className="w-full border p-2 rounded"
+    <Layout>
+      <form onSubmit={handleSubmit} className="max-w-sm mx-auto space-y-4">
+        <h1 className="text-2xl font-bold text-center">Login</h1>
+        <Input
+          aria-label="Email"
           placeholder="E-mail"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        <input
-          className="w-full border p-2 rounded"
+        <Input
+          aria-label="Password"
           type="password"
           placeholder="Senha"
-          value={senha}
-          onChange={(e) => setSenha(e.target.value)}
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
         />
-        <button
-          type="submit"
-          className="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700"
-        >
+        <Button type="submit" className="w-full">
           Acessar
-        </button>
+        </Button>
       </form>
-    </div>
+    </Layout>
   );
 }

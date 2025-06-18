@@ -1,0 +1,13 @@
+:root {
+  --color-primary: 37 99 235; /* blue-600 */
+  --color-background: 255 255 255;
+  --color-foreground: 17 24 39;
+  --radius: 0.5rem;
+  --spacing: 1rem;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: 17 24 39;
+    --color-foreground: 243 244 246;
+  }
+}
