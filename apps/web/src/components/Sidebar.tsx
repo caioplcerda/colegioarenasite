@@ -13,17 +13,18 @@ const links = [
 export default function Sidebar() {
   const pathname = usePathname();
   return (
-    <nav aria-label="Portal navigation" className="w-48 p-4 border-r">
-      <ul className="space-y-2">
+    <nav aria-label="Portal navigation" className="w-48 bg-gray-700 text-white p-4">
+      <ul className="space-y-1">
         {links.map((link) => (
           <li key={link.href}>
             <Link
               href={link.href}
               aria-label={link.label}
-              className={`block px-3 py-2 rounded-md hover:bg-gray-100 ${
-                pathname === link.href ? 'bg-[rgb(var(--color-primary))] text-white' : ''
+              className={`flex items-center gap-2 px-3 py-2 rounded-md hover:bg-gray-800 ${
+                pathname === link.href ? 'bg-brand text-white' : ''
               }`}
             >
+              <span className="w-2 h-2 rounded-full bg-current" />
               {link.label}
             </Link>
           </li>
