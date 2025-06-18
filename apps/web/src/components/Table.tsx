@@ -13,8 +13,8 @@ interface TableProps<T extends Record<string, unknown>> {
 
 export default function Table<T extends Record<string, unknown>>({ columns, data }: TableProps<T>) {
   return (
-    <table className="min-w-full text-sm border bg-background">
-      <thead className="bg-[rgb(var(--color-primary))] text-white">
+    <table className="min-w-full text-sm border bg-gray-100">
+      <thead className="bg-brand text-white">
         <tr>
           {columns.map((c) => (
             <th key={c.accessor} className="p-2 text-left font-medium">
@@ -25,7 +25,7 @@ export default function Table<T extends Record<string, unknown>>({ columns, data
       </thead>
       <tbody>
         {data.map((row, i) => (
-          <tr key={i} className="odd:bg-gray-50">
+          <tr key={i} className="odd:bg-brand-light">
             {columns.map((c) => (
               <td key={c.accessor} className="p-2 border-t">
                 {row[c.accessor] as ReactNode}

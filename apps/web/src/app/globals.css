@@ -15,8 +15,8 @@ body {
 }
 
 body {
-  color: rgb(var(--color-foreground));
-  background: rgb(var(--color-background));
+  color: rgb(var(--gray-900));
+  background: rgb(var(--gray-100));
 }
 
 * {
@@ -45,4 +45,9 @@ a {
   .imgDark {
     display: unset;
   }
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  @apply w-10 h-10 bg-white/50 text-gray-700 rounded-full after:text-lg;
 }
