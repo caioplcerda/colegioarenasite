@@ -1,9 +1,10 @@
+'use client';
 import Link from 'next/link';
 import Button from '@/components/Button';
 import Layout from '@/components/Layout';
 import { Swiper, SwiperSlide } from 'swiper/react';
-// @ts-ignore swiper type definitions
-import { Navigation } from 'swiper/modules';
+// @ts-ignore swiper types
+import { Navigation } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
 
