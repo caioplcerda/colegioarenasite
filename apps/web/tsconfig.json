@@ -1,12 +1,18 @@
 {
   "extends": "@repo/typescript-config/nextjs.json",
+
+  // ⬇️ acrescente baseUrl + paths aqui
   "compilerOptions": {
+    "baseUrl": ".",                 // raiz = apps/web
+    "paths": {
+      "@/*": ["src/*"]              // "@/lib/firebase" → "src/lib/firebase"
+    },
+
     "plugins": [
-      {
-        "name": "next"
-      }
+      { "name": "next" }
     ]
   },
+
   "include": [
     "**/*.ts",
     "**/*.tsx",
@@ -14,7 +20,5 @@
     "next.config.js",
     ".next/types/**/*.ts"
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }
